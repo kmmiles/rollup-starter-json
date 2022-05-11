@@ -8,16 +8,16 @@ import json from '@rollup/plugin-json';
 const production = !process.env.ROLLUP_WATCH;
 
 export default {
-	input: 'src/main.js',
-	output: {
-		file: 'public/bundle.js',
-		format: 'iife', // immediately-invoked function expression — suitable for <script> tags
-		sourcemap: true
-	},
-	plugins: [
-		resolve(), // tells Rollup how to find date-fns in node_modules
-		commonjs(), // converts date-fns to ES modules
+    input: 'src/main.js',
+    output: {
+        file: 'public/bundle.js',
+        format: 'iife', // immediately-invoked function expression — suitable for <script> tags
+        sourcemap: true
+    },
+    plugins: [
+        resolve(), // tells Rollup how to find date-fns in node_modules
+        commonjs(), // converts date-fns to ES modules
         json(), // allow importing json files
-		production && terser() // minify, but only in production
-	]
+        production && terser() // minify, but only in production
+    ]
 };
